@@ -1,10 +1,10 @@
 {
-  "name": "com.grapefrukt.utils.usfxr",
+  "name": "com.jsar.utils.usfxr",
   "version": "0.0.4",
   "displayName": "usfxr",
   "description": "quick prototype sound effects",
-  "unity": "2019.1",
-  "unityRelease": "0b5",
+  "unity": "2018.4",
+  "unityRelease": "f1",
   "keywords": [
     "audio"
   ],
