@@ -223,7 +223,17 @@ namespace usfxr
 			if (instance == null)
 			{
 #if UNITY_EDITOR
-				object prefab = AssetDatabase.LoadAssetAtPath("Assets/usfxr-master/Prefabs/SfxrPlayerGlobal.prefab", typeof(GameObject));
+				object prefab = AssetDatabase.LoadAssetAtPath("Packages/usfxr-master/Prefabs/SfxrPlayerGlobal.prefab", typeof(GameObject));
+				if (prefab == null)
+				{
+					prefab = AssetDatabase.LoadAssetAtPath("Assets/usfxr-master/Prefabs/SfxrPlayerGlobal.prefab", typeof(GameObject));
+					if (prefab == null)
+					{
+						Debug.LogError($"No {nameof(SfxrPlayerGlobal)} found in Scene. Add one!");
+						return;
+					}
+				}
+
 				if (instance == null)
 				{
 					instance = Instantiate(prefab as GameObject).GetComponent<SfxrPlayerGlobal>();
@@ -233,7 +243,7 @@ namespace usfxr
 					Debug.LogWarning($"{nameof(SfxrPlayerGlobal)} was automatically added to the scene.");
 				}
 #else
-				Debug.LogError($"No {nameof(SfxrPlayer)} found in Scene. Add one!");
+				Debug.LogError($"No {nameof(SfxrPlayerGlobal)} found in Scene. Add one!");
 #endif
 			}
 		}
