@@ -43,9 +43,13 @@ namespace usfxr
 			var startY = position.y;
 			position.height = EditorGUIUtility.singleLineHeight;
 
-			expand = EditorGUI.BeginFoldoutHeaderGroup(position, expand, property.name, null, rect => ShowHeaderContextMenu(rect, property));
+			//expand = EditorGUI.BeginFoldoutHeaderGroup(position, expand, property.name, null, rect => ShowHeaderContextMenu(rect, property));
+			//if (expand) OnExpandedGUI(ref position, property);
+			//EditorGUI.EndFoldoutHeaderGroup();
+
+			expand = EditorGUI.Foldout(position, expand, property.name);
 			if (expand) OnExpandedGUI(ref position, property);
-			EditorGUI.EndFoldoutHeaderGroup();
+
 			height = position.y + position.height - startY;
 		}
 
